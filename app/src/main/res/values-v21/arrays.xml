@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets_array">
+        <item id="34">Kertas</item>
+        <item id="52">Botol Plastik</item>
+        <item id="42">Plastik/Kresek</item>
+        <item id="11">Logam Kaleng</item>
+        <item id="21">Kaca</item>
+    </string-array>
+    <string-array name="values">
+        <item>201503001</item>
+        <item>201503002</item>
+        <item>201503003</item>
+        <item>201503004</item>
+        <item>201503005</item>
+    </string-array>
+</resources>

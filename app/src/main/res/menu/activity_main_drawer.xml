@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_daftar_sampah"
+            android:icon="@android:drawable/ic_dialog_dialer"
+            android:title="Daftar Sampah" />
+        <item
+            android:id="@+id/nav_sampahku"
+            android:icon="@android:drawable/ic_menu_delete"
+            android:title="Sampahku" />
+        <item
+            android:id="@+id/nav_pesanan"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Daftar Pesanan" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Tentang" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@android:drawable/ic_secure"
+            android:title="Logout" />
+    </group>
+
+
+
+
+
+
+</menu>

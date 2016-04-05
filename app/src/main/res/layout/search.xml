@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
+        android:textColor="@color/colorWhite"
+        style="@style/Base.V7.Widget.AppCompat.EditText"
+        android:textColorHighlight="@color/colorWhite"
+        android:textColorLink="@color/colorWhite"
+        android:shadowColor="@color/colorWhite"
+        android:textCursorDrawable="@color/colorWhite"
+        android:hint="Cari"
+        android:theme="@style/Base.V12.Widget.AppCompat.EditText" />
+
+</LinearLayout>
