@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.design.widget.NavigationView;
@@ -54,6 +55,7 @@ import org.json.JSONObject;
 
 import java.security.AccessController;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class DetailSampah extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
@@ -193,7 +195,7 @@ public class DetailSampah extends AppCompatActivity implements OnMapReadyCallbac
                                 }
                                 NetworkImageView thumbNail = (NetworkImageView) findViewById(R.id.detailImage);
                                 thumbNail.setImageUrl(Sgambar, imageLoader);
-                                setMap(Double.parseDouble(Slat), Double.parseDouble(Slon));
+                                setMap(Double.parseDouble(Slat), Double.parseDouble(Slon), Salamat);
                                 builder = new AlertDialog.Builder(DetailSampah.this);
                                 builder.setTitle("Apakah anda yakin ingin membeli ?");
 //                                final EditText inputtgl = new EditText(DetailSampah.this);
@@ -387,18 +389,27 @@ public class DetailSampah extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
     }
-    public void setMap(double lat, double lon) {
+    public void setMap(final double lat, final double lon, final String al) {
         LatLng sydney = new LatLng(lat, lon);
         markerMarker = mMap.addMarker(new MarkerOptions().position(sydney).title("Lokasi penjual").draggable(false));
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//            @Override
+//            public void onInfoWindowClick(Marker marker) {
+//                Intent intent = new Intent(DetailSampah.this, MapsActivity.class);
+//                startActivityForResult(intent, 5050);
+//            }
+//        });
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
-            public void onInfoWindowClick(Marker marker) {
-                Intent intent = new Intent(DetailSampah.this, MapsActivity.class);
-                startActivityForResult(intent, 5050);
+            public void onMapClick(LatLng latLng) {
+                String uri = String.format(Locale.ENGLISH, "geo:%f,%f?q=%f, %f(%s)", lat, lon, lat, lon, al);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(intent);
             }
         });
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
